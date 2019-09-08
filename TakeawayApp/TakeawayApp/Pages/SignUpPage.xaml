@@ -1,12 +1,198 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TakeawayApp.Pages.SignUpPage">
+             x:Class="TakeawayApp.Pages.SignUpPage"
+             xmlns:local="clr-namespace:TakeawayApp.AppSpecific">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <!--MAIN CONTAINER-->
+        <Grid>
+            <ScrollView Padding="10">
+
+                <Grid Padding="10" ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!--HEADER TEXT-->
+                    <StackLayout Grid.Row="0" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label LineBreakMode="WordWrap" Text="Sign Up" TextColor="#0092d4" VerticalTextAlignment="Center" FontAttributes="Bold" AbsoluteLayout.LayoutFlags="All">
+                            <Label.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="34" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+
+                    <!---FIELDS CONTAINER-->
+                    <Grid VerticalOptions="CenterAndExpand" Grid.Row="1" ColumnSpacing="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <!---MY DETAILS CONTAINER-->
+                        <StackLayout Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <Label LineBreakMode="WordWrap" Text="My Details" TextColor="#0092d4" FontSize="14" VerticalTextAlignment="Center" FontAttributes="Bold" AbsoluteLayout.LayoutFlags="All"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <!---FIRST NAME ENTRY-->
+                            <Entry Placeholder="* First Name" x:Name="txt_FirstName" HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:EmptyFieldValidator x:Name="FirstNameValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="20" />
+                                </Entry.Behaviors>
+                            </Entry>
+
+                            <Label Text="* Required" IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference FirstNameValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <!---LAST NAME ENTRY-->
+                            <Entry Placeholder="* Last Name" x:Name="txt_LastName"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:EmptyFieldValidator x:Name="LastNameValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="20" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="* Required" IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference LastNameValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <!---PHONE ENTRY-->
+                            <Entry Placeholder="* Phone Number" Keyboard="Telephone" x:Name="txt_Telephone"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:EmptyFieldValidator x:Name="PhoneValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="20" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="* Required" IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference PhoneValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+
+                        <!---MY DETAILS CONTAINER-->
+                        <StackLayout Grid.Row="4" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <Label LineBreakMode="WordWrap" Text="Address" TextColor="#0092d4" FontSize="14" VerticalTextAlignment="Center" FontAttributes="Bold" AbsoluteLayout.LayoutFlags="All"/>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Grid.Column="0" VerticalOptions="Start">
+                            <!---POSTCODE ENTRY-->
+                            <Entry Placeholder="Postcode" x:Name="txt_PostCode"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:EntryLengthValidatorBehavior MaxLength="10" />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="5" Grid.Column="1" VerticalOptions="Start">
+                            <Button Text="Select address" BackgroundColor="Transparent"/>
+                        </StackLayout>
+
+
+                        <StackLayout Grid.Row="6" Grid.ColumnSpan="2" VerticalOptions="StartAndExpand">
+                            <!---EMAIL ENTRY-->
+                            <Entry Placeholder="* Email" Keyboard="Email" x:Name="txt_Email"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:EmailValidatorBehavior x:Name="emailValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="100" />
+                                </Entry.Behaviors>
+                            </Entry>
+
+
+                            <Label Text="Please enter a valid Email" IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference emailValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <!---PASSWORD ENTRY-->
+                            <Entry Placeholder="* Password" x:Name="txt_Password" IsPassword="true"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:PasswordValidationBehavior x:Name="PasswordValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="20" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="* Please enter a valid password, should include a minimum of 8 characters and include 1 uppercase, 1 lowercase, 1 number and a special character such as an @ symbol." IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference PasswordValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+
+                        <StackLayout Grid.Row="7" Grid.ColumnSpan="2" VerticalOptions="Start">
+                            <!---CONFIRM PASSWORD ENTRY-->
+                            <Entry Placeholder="* Confirm Password" x:Name="txt_PasswordConfirm" IsPassword="true"  HeightRequest="50" Margin="5">
+                                <Entry.Behaviors>
+                                    <local:PasswordValidationBehavior x:Name="ConfirmPasswordValidator" />
+                                    <local:EntryLengthValidatorBehavior MaxLength="20" />
+                                    <local:ComparisonBehavior x:Name="ConfirmPasswordMatch" CompareToEntry="{Binding Source={x:Reference txt_Password}}" />
+                                </Entry.Behaviors>
+                            </Entry>
+                            <Label Text="* Please enter a valid password, should include a minimum of 8 characters and include 1 uppercase, 1 lowercase, 1 number and a special character such as an @ symbol." IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference ConfirmPasswordValidator}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+
+                            <Label Text="* Passwords do not match, please try again." IsVisible="false" Style="{StaticResource ValidationEntryErrorStyle}">
+                                <Label.Triggers>
+                                    <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference ConfirmPasswordMatch}, Path=IsValid}" Value="false">
+                                        <Setter Property="IsVisible" Value="true" />
+                                    </DataTrigger>
+                                </Label.Triggers>
+                            </Label>
+                        </StackLayout>
+                    </Grid>
+
+                    <!-- FOOTER -->
+                    <StackLayout HorizontalOptions="Fill" Grid.Row="2" Margin="0,40,0,0">
+                        <!-- SIGN UP BUTTON -->
+                        <Button Text="SIGN UP" Clicked="signUpClicked" BackgroundColor="Green" TextColor="White"/>
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
