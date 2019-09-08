@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TakeawayApp.Pages.StartUpPage">
+    <ContentPage.Content>
+        <Grid>
+            <!---BACKGROUND IMAGE-->
+            <Image HorizontalOptions="CenterAndExpand" Source="bg.png"/>
+
+            <ScrollView Padding="10">
+                <!-- MAIN CONTAINER -->
+                <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- LOGO -->
+                    <Grid Grid.Row="0" Margin="10,40,10,10" VerticalOptions="Center" HorizontalOptions="Center">
+
+                        <Label Text="TAKEAWAY" FontSize="35" Font="Calibri"/>
+
+                    </Grid>
+                    
+                    <!-- BUTTON CONTAINER -->
+                    <Grid Grid.Row="1" Padding="20,0" ColumnSpacing="0" RowSpacing="0" VerticalOptions="Center">
+                        <StackLayout Grid.Row="0">
+                            <!---LOGIN BUTTON-->
+                            <Button x:Name="loginBtn" Clicked="loginBtnClicked" VerticalOptions="End" BackgroundColor="#5adb5c" Text="Login" TextColor="White"/>
+
+                            <!---SIGN UP BUTTON-->
+                            <Button x:Name="signUpBtn" Clicked="signUpBtnClicked" VerticalOptions="End" BackgroundColor="#5adb5c" Text="Sign Up" TextColor="White"/>
+                            
+                            <!---ORDER AS GUEST BUTTON-->
+                            <Button x:Name="guestBtn" Clicked="guestBtnClicked" VerticalOptions="End" BackgroundColor="#5adb5c" Text="Order as a Guest" TextColor="White"/>
+                        </StackLayout>
+                    </Grid>
+                </Grid>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

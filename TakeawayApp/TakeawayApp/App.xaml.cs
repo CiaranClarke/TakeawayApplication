@@ -10,8 +10,8 @@ namespace TakeawayApp
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new LoginPage());
+            //MainPage = new MainPage();
         }
 
         protected override void OnStart()
