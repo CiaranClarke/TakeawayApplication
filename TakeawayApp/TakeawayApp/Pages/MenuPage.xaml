@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TakeawayApp.Pages.MenuPage">
+    <ContentPage.Content>
+        <!--MAIN CONTAINER-->
+            <Grid>
+                <ScrollView Padding="10">
+                    <Grid Padding="10" ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        
+                        
+                    </Grid>
+                </ScrollView>
+                <StackLayout BackgroundColor="Beige" HeightRequest="150">
+                    <Label x:Name="currentPrice" Text="£0.00"/>
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="checkoutClicked"/>
+                    </StackLayout.GestureRecognizers>
+                </StackLayout>
+            </Grid>
+    </ContentPage.Content>
+</ContentPage>

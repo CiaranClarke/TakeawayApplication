@@ -3,10 +3,84 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TakeawayApp.Pages.OrderPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <!--MAIN CONTAINER-->
+        <Grid>
+            <ScrollView Padding="10">
+                <Grid Padding="10" ColumnSpacing="0" RowSpacing="0" HorizontalOptions="Fill" VerticalOptions="FillAndExpand">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!--HEADER TEXT-->
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label x:Name="restaurantName" LineBreakMode="WordWrap" Text="" TextColor="#0092d4" VerticalTextAlignment="Center" FontAttributes="Bold" AbsoluteLayout.LayoutFlags="All">
+                            <Label.FontSize>
+                                <OnIdiom x:TypeArguments="x:Double" Phone="24" Tablet="34" />
+                            </Label.FontSize>
+                        </Label>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="0" Grid.Column="2" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Button ImageSource="close.png" Clicked="closePage"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label Text="Order for: "/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <DatePicker x:Name="dateSelect" MinimumDate="{Binding MinDate}"
+                                    MaximumDate="{Binding MaxDate}"
+                                    Date="{Binding SelectedDate}" />
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label x:Name="deliverCollect" Text="Collect at: "/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <TimePicker x:Name="timeSelect" Time="{Binding SelectedTime}"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <TimePicker x:Name="timeSelect" Time="{Binding SelectedTime}"/>
+                    </StackLayout>
+
+                    <BoxView Grid.Row="3" Grid.ColumnSpan="3" HeightRequest="1" VerticalOptions="Start" x:Name="bv_Divider" IsVisible="True" HorizontalOptions="Center" WidthRequest="300" Margin="10"/>
+
+                    <StackLayout Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label Text="Subtotal" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label x:Name="priceSubtotal" Text="£0.00" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label Text="Total inc. VAT" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Label x:Name="priceTotal" Text="£0.00" FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <StackLayout Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" Orientation="Vertical" VerticalOptions="Center" Margin="0,0,0,10">
+                        <Button Text="Confirm" BackgroundColor="Green" />
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

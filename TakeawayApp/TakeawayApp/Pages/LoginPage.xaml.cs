@@ -49,5 +49,10 @@ namespace TakeawayApp.Pages
             }
         }
 
+        public void OnPasswordRecoveryTapped(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

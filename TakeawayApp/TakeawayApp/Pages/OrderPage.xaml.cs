@@ -14,7 +14,20 @@ namespace TakeawayApp.Pages
 	{
 		public OrderPage ()
 		{
-			InitializeComponent ();
-		}
-	}
+            dateSelect.MinimumDate = DateTime.Now;
+            dateSelect.MaximumDate = DateTime.Now;
+            InitializeComponent ();
+        }
+
+        public void closePage(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
+
+        void OnDateSelected(object sender, DateChangedEventArgs args)
+        {
+            
+        }
+
+    }
 }

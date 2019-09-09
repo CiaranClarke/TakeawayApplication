@@ -41,9 +41,7 @@
                     <StackLayout HorizontalOptions="Fill" VerticalOptions="End" Padding="20" Grid.Row="2">
 
                         <Button x:Name="loginBtn" Clicked="loginBtnClicked" VerticalOptions="End" BackgroundColor="#5adb5c" Text="Login" TextColor="White"/>
-
-                        <Button BackgroundColor="#3b5998" TextColor="White" Clicked="RegisterClicked" VerticalOptions="End" Text="Register Now" x:Name="btn_Register" IsVisible="True" IsEnabled="True"/>
-
+                        
                         <!--SEPARATOR-->
                         <BoxView HeightRequest="1" VerticalOptions="Start" x:Name="bv_Divider" IsVisible="True" HorizontalOptions="Center" WidthRequest="300" Margin="10"/>
 
