@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Firebase.Database;
+using System;
+using System.Threading.Tasks;
 using TakeawayApp.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,6 +13,15 @@ namespace TakeawayApp
         public App()
         {
             InitializeComponent();
+
+            var auth = "npzqMqmacXosF2j9IGZzeRzT1QFI2jbQiT4pQJL7"; // your app secret
+            var firebaseClient = new FirebaseClient(
+              "https://takeawayapp-53254.firebaseio.com/",
+              new FirebaseOptions
+              {
+                  AuthTokenAsyncFactory = () => Task.FromResult(auth)
+              });
+
             MainPage = new NavigationPage(new LoginPage());
             //MainPage = new MainPage();
         }

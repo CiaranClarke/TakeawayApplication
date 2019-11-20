@@ -18,13 +18,13 @@ namespace TakeawayApp.Pages
             NavigationPage.SetHasNavigationBar(this, false);
             this.On<Xamarin.Forms.PlatformConfiguration.Android>().SetIsSwipePagingEnabled(false);
             var homePage = new NavigationPage(new HomePage());
-            homePage.Icon = "homeIcon.png";
+            homePage.IconImageSource = "homeIcon.png";
 
             var menuPage = new NavigationPage(new MenuPage());
-            menuPage.Icon = "menuIcon.png";
+            menuPage.IconImageSource = "menuIcon.png";
 
             var settingsPage = new NavigationPage(new SettingsPage());
-            settingsPage.Icon = "settingsIcon.png";
+            settingsPage.IconImageSource = "settingsIcon.png";
 
 
             Children.Add(homePage);
